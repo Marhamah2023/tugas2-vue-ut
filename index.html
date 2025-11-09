@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pemesanan Bahan Ajar - Universitas Terbuka</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        /* ===== Gaya Khusus untuk index.html ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #2b5fab, #00b4d8);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 60px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.8s ease;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            font-size: 16px;
+            font-weight: 400;
+            color: #e3f2fd;
+            margin-bottom: 40px;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .menu a {
+            display: block;
+            background: #ffffff;
+            color: #2b5fab;
+            text-decoration: none;
+            padding: 15px 25px;
+            width: 80%;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu a:hover {
+            background: #2b5fab;
+            color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 13px;
+            color: #cce7ff;
+        }
+
+        /* 🔹 Responsif untuk HP */
+        @media (max-width: 600px) {
+            .home-container {
+                padding: 30px 25px;
+            }
+
+            .menu a {
+                width: 100%;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="home-container">
+        <h1>📚 Pemesanan Bahan Ajar</h1>
+        <h2>Universitas Terbuka</h2>
+
+        <div class="menu">
+            <a href="stok.html">📦 Lihat Stok Bahan Ajar</a>
+            <a href="tracking.html">🚚 Lacak Pengiriman (Tracking DO)</a>
+        </div>
+
+        <footer>
+            <p>© 2025 Universitas Terbuka — Sistem Informasi Pemesanan Bahan Ajar</p>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Stok Bahan Ajar - Universitas Terbuka</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <h1>📦 Stok Bahan Ajar</h1>
+
+        <!-- Filter -->
+        <div class="filter-box">
+            <label>Kategori:</label>
+            <select v-model="filterKategori">
+                <option value="">Semua</option>
+                <option v-for="k in kategoriList" :key="k">{{ k }}</option>
+            </select>
+
+            <label>UPBJJ:</label>
+            <select v-model="filterUpbjj">
+                <option value="">Semua</option>
+                <option v-for="u in upbjjList" :key="u">{{ u }}</option>
+            </select>
+        </div>
+
+        <!-- Tabel Stok -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Kode</th>
+                    <th>Judul</th>
+                    <th>Kategori</th>
+                    <th>UPBJJ</th>
+                    <th>Lokasi Rak</th>
+                    <th>Harga</th>
+                    <th>Qty</th>
+                    <th>Catatan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="buku in stokFiltered" :key="buku.kode" :class="{ lowstock: buku.qty < buku.safety }">
+                    <td>{{ buku.kode }}</td>
+                    <td>{{ buku.judul }}</td>
+                    <td>{{ buku.kategori }}</td>
+                    <td>{{ buku.upbjj }}</td>
+                    <td>{{ buku.lokasiRak }}</td>
+                    <td>Rp {{ buku.harga.toLocaleString() }}</td>
+                    <td>{{ buku.qty }}</td>
+                    <td v-html="buku.catatanHTML"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="index.html" class="btn-back">← Kembali</a>
+    </div>
+
+    <script src="js/stok-app.js"></script>
+</body>
+
+</html>

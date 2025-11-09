@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Tracking DO - Universitas Terbuka</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <h1>🚚 Tracking Delivery Order (DO)</h1>
+
+        <div class="form-box">
+            <label for="kodeDO">Masukkan Kode DO:</label>
+            <input type="text" v-model="kodeDO" placeholder="misal: DO2025-0001" />
+            <button @click="cariDO">Cari</button>
+        </div>
+
+        <div v-if="hasil">
+            <h3>Data Pengiriman</h3>
+            <p><strong>NIM:</strong> {{ hasil.nim }}</p>
+            <p><strong>Nama:</strong> {{ hasil.nama }}</p>
+            <p><strong>Status:</strong> {{ hasil.status }}</p>
+            <p><strong>Ekspedisi:</strong> {{ hasil.ekspedisi }}</p>
+            <p><strong>Tanggal Kirim:</strong> {{ hasil.tanggalKirim }}</p>
+            <p><strong>Paket:</strong> {{ hasil.paket }}</p>
+            <p><strong>Total:</strong> Rp {{ hasil.total.toLocaleString() }}</p>
+
+            <h4>Riwayat Perjalanan</h4>
+            <ul>
+                <li v-for="p in hasil.perjalanan" :key="p.waktu">
+                    {{ p.waktu }} - {{ p.keterangan }}
+                </li>
+            </ul>
+        </div>
+
+        <div v-else-if="notFound">
+            <p class="error">❌ Data DO tidak ditemukan.</p>
+        </div>
+
+        <a href="index.html" class="btn-back">← Kembali</a>
+    </div>
+
+    <script src="js/tracking-app.js"></script>
+</body>
+
+</html>
